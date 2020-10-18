@@ -1,1 +1,2 @@
-# aurora
+# aurcore
+Event library for aurora
