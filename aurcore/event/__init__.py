@@ -133,12 +133,12 @@ class EventRouterHost:
    #    return f"EventRouterHost {self.name} | Routers: {[r for r in self.routers]}"
 
    def register(self, router: EventRouter) -> None:
-      if router.name in self.routers:
-         raise RuntimeError(f"[{self}] already has an event router named {router.name}")
+      # if router.name in self.routers:
+      #    raise RuntimeError(f"[{self}] already has an event router named {router.name}")
       self.routers[router.name].append(router)
 
    def deregister(self, router: EventRouter) -> None:
-      if router in self.routers:
+      if router.name in self.routers:
          self.routers[router.name].remove(router)
       else:
          raise RuntimeError(f"[{self}] attempted to deregister an unregistered router {router}")
